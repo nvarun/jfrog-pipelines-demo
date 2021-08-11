@@ -3,7 +3,7 @@ resources:
     type: CronTrigger
     configuration:
       interval: '30 11 * * *'
-  - name: nginxContainerImage
+  - name: helloWorldContainerImage
     type: Image
     configuration:
       registry: JFrogCR
@@ -14,11 +14,11 @@ resources:
 pipelines:
   - name: CronPipeline
     steps:
-      - name: PullandRunImage
+      - name: ImageList
         type: Bash
         configuration:
           integrations: [
-            JFrogCR
+            helloWorldContainerImage
           ]
           inputResources:
             - name: autoTrigger
