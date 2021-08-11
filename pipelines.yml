@@ -10,8 +10,8 @@ resources:
     type: Image
     configuration:
       registry: JFrogCR
-      sourceRepository: {{ .Values.imageSrcRepo }}
-      imageName: {{ .Values.artifactoryURL }}/{{ .Values.imageSrcRepo }}/hello-world
+      sourceRepository: {{ .Values.jfrogCR.sourceRepository }}
+      imageName: {{ .Values.jfrogCR.artifactoryURL }}/{{ .Values.jfrogCR.sourceRepository }}/{{ .Values.jfrogCR.imageName }}
       imageTag: latest
 
 pipelines:
