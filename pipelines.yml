@@ -17,7 +17,9 @@ pipelines:
       - name: PullandRunImage
         type: Bash
         configuration:
-          integrations: JFrogCR
+          integrations: [
+            'JFrogCR'
+          ]
           inputResources:
             - name: autoTrigger
         execution:
