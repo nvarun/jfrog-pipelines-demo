@@ -10,6 +10,7 @@ pipelines:
       - name: ImageList
         type: Bash
         configuration:
+          inputResources:
             - name: autoTrigger
         execution:
           onExecute:
