@@ -21,7 +21,7 @@ pipelines:
             - name: autoTrigger
         execution:
           onExecute:
-            - env | grep res_
+            - env | grep ^res_
             - docker ps -a
       - name: C0002
         type: Bash
@@ -32,4 +32,5 @@ pipelines:
             - name: C0001
         execution:
           onExecute:
+            - env | grep ^res_
             - docker run ${res_helloWorldContainerImage_imageName}
