@@ -17,9 +17,8 @@ pipelines:
       - name: ImageList
         type: Bash
         configuration:
-          integrations: [
-            helloWorldContainerImage
-          ]
+          integrations: 
+            - name: helloWorldContainerImage
           inputResources:
             - name: autoTrigger
         execution:
