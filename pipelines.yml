@@ -1,0 +1,7 @@
+resources:
+  - name: nginxContainerImage
+    type: Image
+    configuration:
+      registry: JFrogCR
+      imageName: default-docker-virtual/library/nginx
+      imageTag: latest
