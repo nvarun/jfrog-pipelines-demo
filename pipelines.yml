@@ -3,5 +3,6 @@ resources:
     type: Image
     configuration:
       registry: JFrogCR
-      imageName: default-docker-virtual/library/nginx
+      sourceRepository: default-docker-virtual
+      imageName: library/nginx
       imageTag: latest
