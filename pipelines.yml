@@ -3,6 +3,13 @@ resources:
     type: CronTrigger
     configuration:
       interval: '0 12 * * *'
+  - name: helloWorldContainerImage
+    type: Image
+    configuration:
+      registry: JFrogCR
+      sourceRepository: default-docker-virtual
+      imageName: hello-world
+      imageTag: latest
 
 pipelines:
   - name: CronPipeline
@@ -10,8 +17,10 @@ pipelines:
       - name: ImageList
         type: Bash
         configuration:
+          integrations:
+            - name: JFrogCR
           inputResources:
             - name: autoTrigger
         execution:
           onExecute:
-            - env
+            - docker image ls
