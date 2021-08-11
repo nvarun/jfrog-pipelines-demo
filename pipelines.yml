@@ -26,11 +26,11 @@ pipelines:
       - name: C0002
         type: Bash
         configuration:
-          integrations:
-            - name: JFrogCR
+          inputResources:
+            - name: helloWorldContainerImage
           inputSteps:
             - name: C0001
         execution:
           onExecute:
-            - env | grep hello
+            - env | grep ^res_
             - docker run ${res_helloWorldContainerImage_imageName}
