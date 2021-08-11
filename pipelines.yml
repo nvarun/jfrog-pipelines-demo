@@ -1,6 +1,3 @@
-template: true
-valuesFilePath: values.yml
-
 resources:
   - name: autoTrigger
     type: CronTrigger
@@ -10,8 +7,8 @@ resources:
     type: Image
     configuration:
       registry: JFrogCR
-      sourceRepository: {{ .Values.jfrogCR.sourceRepository }}
-      imageName: {{ .Values.jfrogCR.artifactoryURL }}/{{ .Values.jfrogCR.sourceRepository }}/{{ .Values.jfrogCR.imageName }}
+      sourceRepository: default-docker-virtual
+      imageName: nvarun.jfrog.io/default-docker-virtual/hello-world
       imageTag: latest
 
 pipelines:
