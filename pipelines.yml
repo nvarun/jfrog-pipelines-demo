@@ -1,3 +1,6 @@
+template: true
+valuesFilePath: ./values.yml
+
 resources:
   - name: autoTrigger
     type: CronTrigger
@@ -7,8 +10,8 @@ resources:
     type: Image
     configuration:
       registry: JFrogCR
-      sourceRepository: default-docker-virtual
-      imageName: hello-world
+      sourceRepository: {{ .Values.imageSrcRepo }}
+      imageName: {{ .Values.artifactoryURL }}/{{ .Values.imageSrcRepo }}/hello-world
       imageTag: latest
 
 pipelines:
@@ -21,7 +24,6 @@ pipelines:
             - name: autoTrigger
         execution:
           onExecute:
-            - env | grep ^res_
             - docker ps -a
       - name: C0002
         type: Bash
