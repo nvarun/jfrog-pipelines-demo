@@ -14,13 +14,22 @@ resources:
 pipelines:
   - name: CronPipeline
     steps:
-      - name: ImageList
+      - name: C0001
         type: Bash
         configuration:
-          integrations:
-            - name: JFrogCR
           inputResources:
             - name: autoTrigger
         execution:
           onExecute:
-            - docker image ls
+            - env | grep res_
+            - docker ps -a
+      - name: C0002
+        type: Bash
+        configuration:
+          integrations:
+            - name: JFrogCR
+          inputSteps:
+            - name: C0001
+        execution:
+          onExecute:
+            - docker run ${res_helloWorldContainerImage_imageName}
