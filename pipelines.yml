@@ -2,8 +2,7 @@ resources:
   - name: autoTrigger
     type: CronTrigger
     configuration:
-<<<<<<< HEAD
-      interval: '0 12 * * *'
+      interval: '*/5 * * * *'
   - name: helloWorldContainerImage
     type: Image
     configuration:
@@ -11,9 +10,6 @@ resources:
       sourceRepository: default-docker-virtual
       imageName: hello-world
       imageTag: latest
-=======
-      interval: '30 12 * * *'
->>>>>>> 0f982e262c67a3468914e9d8ad1b5d92038cb1e5
 
 pipelines:
   - name: CronPipeline
