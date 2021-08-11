@@ -1,8 +1,26 @@
 resources:
+  - name: autoTrigger
+    type: CronTrigger
+    configuration:
+      interval: '30 11 * * *'
   - name: nginxContainerImage
     type: Image
     configuration:
       registry: JFrogCR
       sourceRepository: default-docker-virtual
-      imageName: library/nginx
+      imageName: hello-world
       imageTag: latest
+      
+pipelines:
+  - name: CronPipeline
+    steps:
+      - name: PullandRunImage
+        type: Bash
+        configuration:
+          integrations: JFrogCR
+          inputResources:
+            - name: autoTrigger
+        execution:
+          onExecute:
+            - docker image ls
+    
