@@ -14,7 +14,7 @@ resources:
 pipelines:
   - name: CronPipeline
     steps:
-      - name: 'Hello, World!'
+      - name: HelloWorld
         type: Bash
         configuration:
           inputResources:
