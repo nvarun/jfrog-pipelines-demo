@@ -14,22 +14,14 @@ resources:
 pipelines:
   - name: CronPipeline
     steps:
-      - name: C0001
+      - name: 'Hello, World!'
         type: Bash
         configuration:
           inputResources:
             - name: autoTrigger
-        execution:
-          onExecute:
-            - docker ps -a
-      - name: C0002
-        type: Bash
-        configuration:
-          inputResources:
             - name: helloWorldContainerImage
-          inputSteps:
-            - name: C0001
         execution:
           onExecute:
-            - env | grep ^res_
+            - uname -a
+            - date
             - docker run ${res_helloWorldContainerImage_imageName}
