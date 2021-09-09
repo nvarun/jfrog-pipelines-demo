@@ -2,7 +2,7 @@ resources:
   - name: autoTrigger
     type: CronTrigger
     configuration:
-      interval: '0 7 * * *'
+      interval: '0 7 * * FRI'
   - name: helloWorldContainerImage
     type: Image
     configuration:
