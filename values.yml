@@ -1,4 +1,0 @@
-jfrogCR:
-  registry: nvarun.jfrog.io
-  sourceRepository: default-docker-virtual
-  imageName: hello-world
